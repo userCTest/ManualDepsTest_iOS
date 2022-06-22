@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-tvos12.1-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UsercentricsTV
+import Foundation
+import Swift
+import UIKit
+import Usercentrics
+extension Array where Element == UIKit.NSLayoutConstraint {
+  public func active()
+}
+public class UsercentricsBanner {
+  public init(bannerSettings: UsercentricsTV.BannerSettings? = nil)
+  public func showFirstLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsTV.UsercentricsConsentUserResponse) -> Swift.Void)
+  public func showSecondLayer(hostView: UIKit.UIViewController, completionHandler: @escaping (UsercentricsTV.UsercentricsConsentUserResponse) -> Swift.Void)
+  @objc deinit
+}
+public struct UsercentricsConsentUserResponse : Swift.Equatable {
+  public let consents: [Usercentrics.UsercentricsServiceConsent]
+  public let controllerId: Swift.String
+  public let userInteraction: UsercentricsTV.UsercentricsUserInteraction
+  public init(consents: [Usercentrics.UsercentricsServiceConsent], controllerId: Swift.String, userInteraction: UsercentricsTV.UsercentricsUserInteraction)
+  public static func == (a: UsercentricsTV.UsercentricsConsentUserResponse, b: UsercentricsTV.UsercentricsConsentUserResponse) -> Swift.Bool
+}
+public enum UsercentricsUserInteraction {
+  case acceptAll
+  case denyAll
+  case granular
+  case noInteraction
+  public static func == (a: UsercentricsTV.UsercentricsUserInteraction, b: UsercentricsTV.UsercentricsUserInteraction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct BannerSettings {
+  public let logo: UIKit.UIImage
+  public init(logo: UIKit.UIImage)
+}
+extension UsercentricsTV.UsercentricsUserInteraction : Swift.Equatable {}
+extension UsercentricsTV.UsercentricsUserInteraction : Swift.Hashable {}

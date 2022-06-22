@@ -1,0 +1,4 @@
+framework module UsercentricsTV {
+  header "UsercentricsTV-Swift.h"
+  requires objc
+}
